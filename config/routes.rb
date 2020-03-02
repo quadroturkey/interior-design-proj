@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
   
+  get 'comment/show'
+  get 'comment/new'
+  get 'comment/create'
+  get 'comment/delete'
+  get 'post/index'
+  get 'post/show'
+  get 'post/create'
+  get 'post/edit'
+  get 'post/new'
+  get 'post/delete'
+  get 'post/update'
+  get 'users/index'
+  get 'users/show'
+  get 'users/create'
+  get 'users/edit'
+  get 'users/new'
+  get 'users/delete'
+  get 'users/update'
+  get 'users/index'
 end
