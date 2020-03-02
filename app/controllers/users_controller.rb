@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
     @users = User.all
   end
@@ -16,6 +16,7 @@ class UserController < ApplicationController
   # end
 
   def edit
+    @users = User.find(parmas[:id])
   end
 
 
