@@ -1,0 +1,15 @@
+<h1>Create a Account</h1>
+
+<ul>
+  <%= form_for @luxx do |x| %>
+    <%= x.label :name %><br>
+    <%= x.text_field :name, placeholder: "Name" %><br>
+    <%= x.label :username %><br>
+    <%= x.text_field :username, placeholder: "Username"  %><br>
+    <%= x.label :email  %><br>
+    <%= x.text_field :email, placeholder: "Email"  %><br>
+    <%= x.label :password%><br>
+    <%= x.password_field :password, placeholder: "Password"%><br>
+    <%= x.submit "Create" %>
+  <%end%>
+</ul>
