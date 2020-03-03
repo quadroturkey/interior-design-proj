@@ -1,13 +1,13 @@
 <h1>Make a NEW post</h1>
-
+<h2><%= @user.username %></h2>
 <ul>
 <%= form_for(@post) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :picture %>
-    <%= f.file_field :picture %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :picture %><br>
+    <%= f.file_field :picture %><br>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %><br>
     <%= f.submit %>
 <% end %>
 </ul>

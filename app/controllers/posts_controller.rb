@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
+  end
+
+  def show
   end
   
   def new
@@ -8,30 +13,38 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.save
-    redirect_to posts_path(@post)
+    @user = User.find(session[:user_id])
+    binding.pry
+    @post = Post.new(title: params[:post][:title], picture: params[:post][:picture], description: params[:post][:description], user: @user)
+    if @post.valid?
+      @post.save
+      redirect_to post_path(@post)
+    else
+      render 'new'
+    end
   end
-  
-  def show
-    @post = Post.all
+
+  def edit
   end
-  
+
   def update
-    @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_params(@post)
+    redirect_to @post
   end
   
   def destroy
-    Post.find(params[:id]).destroy
-    redirect_to post_params
+    @post.destroy
+    redirect_to posts_path
   end
   
   private
+
+  def find_post
+    @post = Post.find(params[:id])
+  end
   
   def post_params
-    params.require(:post).permit(:title, :description, :picture)
+    params.require(:post).permit(:title, :picture, :description, :user_id)
   end
 end
   

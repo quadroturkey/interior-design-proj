@@ -1,13 +1,8 @@
-<h1>Featured Post</h1>
-<%= link_to "new", users_path %><a align ="right" href="/users/new">signup</a>
-<h3 align ="right">Login</h3>
-
-<%= link_to "new", users_path(@user) %>
-<a href="/users/new">signup</a>
+<h1>Home Page</h1>
 <ul>
 <%= @posts.each do |post|%>
-    <%= post.title%>
-    <%= post.picture%>
-    <%= post.description%>
+    <h3><%= link_to post.title, post_path(post) %> by <%= link_to post.user.name, user_path(book.user) %></h3>
+    <%= post.picture %>
+    <%= post.description %>
 <%end%>
 </ul>

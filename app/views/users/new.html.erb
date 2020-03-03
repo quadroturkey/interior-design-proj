@@ -1,19 +1,8 @@
-<h1>Create a Account</h1>
-
-<ul>
-  <%= form_for @user do |x| %>
-    <%= x.label :name %><br>
-    <%= x.text_field :name %><br>
-
-    <%= x.label :username %><br>
-    <%= x.text_field :username %><br>
-
-    <%= x.label :email  %><br>
-    <%= x.text_field :email %><br>
-
-    <%= x.label :password%><br>
-    <%= x.password_field :password %><br>
-    
-    <%= x.submit "Create Profile" %>
-  <%end%>
-</ul>
+<h1>Sign Up</h1>
+<%= form_for @user do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.submit %>
+<%end%>
