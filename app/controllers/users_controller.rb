@@ -1,14 +1,19 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
     @user = User.all
   end
 
+
+  def new
+    @user = User.new
+  end
+
   def create
-    @user = User.create
-      if @user.save
-        redirect_to :action => post_url
+    @user = User.new(user_params)
+      if User.new
+        redirect_to post_url
       else
-        render :action => post_url
+        redirect_to post_url
       end
   end
 
@@ -30,6 +35,6 @@ class UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password)
+    params.require(:user).permit(:id, :name, :username, :email, :password)
   end
 end
