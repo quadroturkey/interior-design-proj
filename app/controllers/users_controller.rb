@@ -1,24 +1,20 @@
 class UsersController < ApplicationController
-  def index
-    @user = User.all
-  end
-
 
   def new
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
-      if User.new
-        redirect_to post_url
-      else
-        redirect_to post_url
-      end
+  def show
+    @user = User.find(params[:id])
   end
 
-  def show
-    @user = User.all
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -27,14 +23,9 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  def destroy
-    User.find(params[:id]).destroy
-    redirect_to user_path
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:id, :name, :username, :email, :password)
+    params.require(:user).permit(:name, :username, :email, :password)
   end
 end
