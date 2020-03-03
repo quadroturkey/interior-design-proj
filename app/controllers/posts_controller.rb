@@ -14,8 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    binding.pry
-    @post = Post.new(title: params[:post][:title], picture: params[:post][:picture], description: params[:post][:description], user: @user)
+    @post = Post.new(title: params[:post][:title], picture: params[:post][:picture], description: params[:post][:description], user: current_user)
     if @post.valid?
       @post.save
       redirect_to post_path(@post)
