@@ -1,10 +1,16 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   def index
-    @user = Post.all
+    @posts = Post.all
   end
   
+  def new
+    @post = Post.new
+  end
+
   def create
-    @post = Post.create
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to posts_path(@post)
   end
   
   def show
@@ -25,7 +31,7 @@ class PostController < ApplicationController
   private
   
   def post_params
-    params.require(:user).permit(:name, :username, :email, :password)
+    params.require(:post).permit(:title, :description, :picture)
   end
 end
   
