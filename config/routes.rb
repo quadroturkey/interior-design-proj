@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'sessions#welcome'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   resources :posts
 
   get 'login', to: 'sessions#new'
