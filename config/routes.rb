@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'sessions#welcome'
   resources :users, only: [:new, :create, :show]
-  resources :posts
+  resources :posts do
+    resources :likes
+  end
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

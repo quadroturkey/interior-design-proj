@@ -1,7 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  liked?: false
+  model: MyString
+  post: one
+  user: one
 
 two:
-  liked?: false
+  model: MyString
+  post: two
+  user: two
