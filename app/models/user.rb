@@ -3,5 +3,5 @@ class User < ApplicationRecord
     has_many :posts, dependent: :delete_all
     has_many :items
     has_many :comments, through: :posts
-    has_many :likes, through: :posts
+    has_many :likes, dependent: :destroy
 end
