@@ -1,8 +1,8 @@
 <h1>Home Page</h1>
-<ul>
-<%= @posts.each do |post|%>
-    <h3><%= link_to post.title, post_path(post) %> by <%= link_to post.user.username, user_path(post.user) %></h3>
-    <%= post.picture %>
-    <%= post.description %>
-<%end%>
-</ul>
+    <ul>
+        <%= @posts.each do |post|%>
+            <h3><%= link_to post.title, post_path(post) %></h3>
+            <image src="<%=(url_for(post.picture))%>">
+            <p><%= post.description %></p>
+        <%end%>
+    </ul>
