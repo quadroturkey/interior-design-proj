@@ -1,4 +1,8 @@
-<h1>Profile</h1>
-
-<%= @user.name %><br>
-<%= @user.email %><br>
+<h1><%= @user.username %>'s Posts</h1>
+    <ul>
+        <%= @posts.each do |post|%>
+            <h3><%= link_to post.title, post_path(post) %></h3>
+            <image src="<%=(url_for(post.picture))%>">
+            <p><%= post.description %></p>
+        <%end%>
+    </ul>

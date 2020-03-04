@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorized, only: [:new, :create, :show]
 
   def new
     @user = User.new
@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     session[:user_id] = @user.id
     redirect_to '/welcome'
+  end
+
+  def show
+    @user = User.find_by(id: session[:user_id])
+    @posts = @user.posts
   end
 
   private
