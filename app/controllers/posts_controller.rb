@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @user = User.find(session[:user_id])
     @post = Post.new(title: params[:post][:title], description: params[:post][:description], user: current_user)
-    @post.picture.attach(params[:post][:picture])
+    @post.pictures.attach(params[:post][:pictures])
     if @post.valid?
       @post.save
       redirect_to post_path(@post)
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:title, :picture, :description, :user_id)
+    params.require(:post).permit(:title, :pictures [], :description, :user_id)
   end
 end
   
