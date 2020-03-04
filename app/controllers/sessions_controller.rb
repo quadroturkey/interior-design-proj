@@ -17,6 +17,10 @@ class SessionsController < ApplicationController
        end
     end
 
+   #  def destroy_user_session_path
+   #    session[:user_id].destroy
+   #  end
+
     def page_requires_login
     end
 end
