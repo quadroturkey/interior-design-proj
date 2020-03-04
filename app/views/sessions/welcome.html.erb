@@ -1,6 +1,8 @@
 <h1>Welcome</h1>
 <% if logged_in? %>
     <h1>You are Logged In, <%= current_user.username %></h1>
+    <%= button_to "Featured Post", '/posts', method: :get%>
+    <%= button_to "Create Post", '/posts/new', method: :get%>
 <%end%>
 <%= button_to "Login", '/login', method: :get%>
 <%= button_to "Sign Up", '/users/new', method: :get%>
