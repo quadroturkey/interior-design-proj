@@ -1,3 +1,6 @@
 <h1><%= @post.title %></h1><br>
-<image src="<%=(url_for(@post.picture))%>"><br>
+
+<% @post.pictures.each do |image| %>
+    <%= image_tag(image) %>
+    <% end %>
 <p><%= @post.description %></p>
