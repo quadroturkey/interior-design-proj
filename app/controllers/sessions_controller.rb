@@ -16,10 +16,11 @@ class SessionsController < ApplicationController
           redirect_to '/login'
        end
     end
-
-   #  def destroy_user_session_path
-   #    session[:user_id].destroy
-   #  end
+  
+    def destroy
+      session.delete(:user_id)
+      redirect_to root_url
+    end
 
     def page_requires_login
     end
