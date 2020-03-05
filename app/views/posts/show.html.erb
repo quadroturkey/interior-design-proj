@@ -10,6 +10,10 @@
       <%= button_to 'Like', post_likes_path(@post), method: :post %>
     <% end %>
 
+  <% if @post.user_id == session[:user_id] %> 
+      <%= button_to "Delete Post", @post, method: :delete %>   
+  <% end %>
+
 <image src="<%=(url_for(@post.picture))%>"><br>
 
 <p><%= @post.description %></p>

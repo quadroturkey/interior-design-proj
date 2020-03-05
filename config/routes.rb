@@ -6,11 +6,6 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :likes
-    resources :comments
-  end
-
-  resources :comments do
-    :comments
   end
 
   get 'login', to: 'sessions#new'

@@ -1,7 +1,8 @@
 <h1>Home Page</h1>
     <ul>
         <%= @posts.each do |post|%>
-            <% @post_owner = User.find_by(id: post.user_id) %>           
+            <% @post_owner = User.find_by(id: post.user_id) %>     
+            
             <h3><%= link_to post.title, post_path(post) %> by <%= link_to @post_owner.username, user_path(@post_owner.id) %></h3>
             <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
             <image src="<%=(url_for(post.picture))%>">
