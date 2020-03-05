@@ -1,14 +1,17 @@
-<body bgcolor="#dfe6e9">
-<div class="logo"></div>
-<div class="siteheaders">
-<h1>Sign Up</h1>
+<body bgcolor="#b2bec3">
+<div class="logo">
+<h1 align = "center"></h1>
+</div>
+<h1 align="center">Sign Up</h1>
 </div>
 <%= form_for @user do |f|%>
-  <%= f.label :username%><br>
+  <div class="buttons">
+  <%= f.label :username%>
   <%= f.text_field :username%><br>
-  <%= f.label :password%><br>
+  <%= f.label :password%>
   <%= f.password_field :password%><br>
   <%= @user.errors.full_messages.first if @user.errors.any? %><br>
   <%= f.submit %>
+  </div>
   
 <%end%>

@@ -3,14 +3,20 @@
 <h1 align = "center"></h1>
 </div>
 
-<h1>Welcome to Rooms got Rooms</h1>
+<h1 align = "center">Welcome to Rooms got Rooms</h1>
 
 <% if logged_in? %>
+    <div class="profile">
     <h1>You are Logged In, <%= current_user.username %></h1>
+    </div>
+    <div class="buttons">
     <%= button_to "Featured Post", '/posts', method: :get%>
     <%= button_to "Create Post", '/posts/new', method: :get%>
     <%= button_to "Log out", '/logout', method: :delete %>
+    </div>
 <% else %>
+    <div class="buttons">
     <%= button_to "Login", '/login', method: :get%>
     <%= button_to "Sign Up", '/users/new', method: :get%>
+    </div>
 <% end %>
