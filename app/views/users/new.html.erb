@@ -4,5 +4,7 @@
   <%= f.text_field :username%><br>
   <%= f.label :password%><br>
   <%= f.password_field :password%><br>
+  <%= @user.errors.full_messages.first if @user.errors.any? %><br>
   <%= f.submit %>
+  
 <%end%>
