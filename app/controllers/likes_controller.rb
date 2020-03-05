@@ -27,8 +27,7 @@ class LikesController < ApplicationController
     end
 
     def already_liked?
-        Like.where(user_id: current_user.id, post_id:
-        params[:post_id]).exists?
+        Like.where(user_id: current_user.id, post_id: params[:post_id]).exists?
     end
 
     def find_like
