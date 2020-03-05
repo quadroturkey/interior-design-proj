@@ -1,15 +1,72 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.whitespacecontainer{
+    align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20%;
+}
+
+.whitespace{
+    width: 700px;
+    background-color: white;
+    padding: 50px;
+    margin-left: 100px;
+    margin-top: -400px;
+    height: 600px;
+}
+
+.logo {
+
+    background:url(logo.png);
+    background-size: cover;
+    size: large;
+    width:200px;
+    
+    height:200px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    }
+
+.profilelogo {
+    background:url(logo.png);
+    background-size: cover;
+    width:200px;
+    
+    height:200px;
+    right: 200px;
+
+    display: block;
+}
+
+.profile {
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    font-size: 10px;
+    font-weight: light;
+  
+    top: 0px;
+
+}
+
+.buttons {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+.siteheaders {
+    position: absolute;
+    right: 50px;
+    left: 750px;
+    top: 30px;
+    font-family: Tahoma, Geneva, sans-serif;
+    
+
+    font-size: 10px;
+    font-weight: light;
+
+}
+
+    
