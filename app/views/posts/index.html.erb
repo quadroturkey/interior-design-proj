@@ -1,4 +1,9 @@
+<div class="siteheaders">
 <h1>Home Page</h1>
+</div>
+<div class="profile">
+<h1><%= link_to current_user.username, user_path(current_user.id) %></h1>
+</div>
 <%= button_to "Log out", '/logout', method: :delete %>
 <%= button_to "Create Post", '/posts/new', method: :get%>
     <ul>
@@ -6,6 +11,10 @@
             <% @post_owner = User.find_by(id: post.user_id) %>     
             <h3><%= link_to post.title, post_path(post) %> by <%= link_to @post_owner.username, user_path(@post_owner.id) %></h3>
             <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            <div style ="width:300px; height:300px;">
             <image src="<%=(url_for(post.picture))%>">
+
+            </div>
+            <p><%= post.description %></p>
         <%end%>
     </ul>
