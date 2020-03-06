@@ -1,1 +1,21 @@
-<h1>You have access to this page, <%= current_user.username %></h1>
+<h1>Analytics</h1>
+
+Total Posts: <%= Post.number_of_posts %><br>
+
+Total Lkes: <%= Like.num_likes %><br>
+
+Total Users: <%= User.total_users %><br>
+
+Most Liked Post: <%= link_to Post.most_liked_post.title, post_path(Post.most_liked_post.id) %><br>
+
+User with the Most Posts: <%= link_to User.most_posts.username, user_path(User.most_posts) %><br>
+
+User with the Most likes: <%= link_to User.most_likes.username, user_path(User.most_likes) %> 
+likes: <%= User.most_likes.likes.count %><br>
+
+Luckiest User: <%= User.lucky.username %><br>
+
+Your Total Posts: <%= current_user.posts.count %><br>
+
+Your Total Likes: <%= current_user.likes.count %><br>
+
