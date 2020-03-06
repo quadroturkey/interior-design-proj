@@ -1,22 +1,28 @@
+<body bgcolor="#b2bec3">
+<div class="profilelogo"></div>
+<div class="siteheaders">
 <h1><%= @post.title %></h1><br>
-<%= button_to "Featured Posts", '/posts', method: :get%>
+</div>
 
-<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<div class="whitespacecontainer">
+  <div class="whitespace">
+    <%= button_to "Featured Posts", '/posts', method: :get%>
 
-  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+      <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+      <% else %>
+        <%= button_to 'Like', post_likes_path(@post), method: :post %>
+      <% end %>
 
-    <% if pre_like %>
-      <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
-    <% else %>
-      <%= button_to 'Like', post_likes_path(@post), method: :post %>
-    <% end %>
+      <% if @post.user_id == session[:user_id] %> 
+        <%= button_to "Delete Post", @post, method: :delete %>   
+      <% end %>
+      <p><%= @post.description %></p>
 
-  <% if @post.user_id == session[:user_id] %> 
-      <%= button_to "Delete Post", @post, method: :delete %>   
-  <% end %>
-
-<image src="<%=(url_for(@post.picture))%>"><br>
-
-<p><%= @post.description %></p> 
+      <image src="<%=(url_for(@post.picture))%>"><br>
+  </div>
+</div>
 
 

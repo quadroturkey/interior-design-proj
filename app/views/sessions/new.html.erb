@@ -1,8 +1,16 @@
-<h1>Login</h1>
+<body bgcolor="#b2bec3">
+<div class="logo">
+<h1 align = "center"></h1>
+</div>
+<h1 align="center">Login</h1>
+</div>
+
+<div class="buttons">
    <%= form_tag '/login' do %>
    <%= label_tag :username%>
-   <%= text_field_tag :username %>
+   <%= text_field_tag :username %><br>
    <%= label_tag :password%>
    <%= password_field_tag :password%>
    <%= submit_tag "Login"%>
 <%end%>
+</div>

@@ -1,9 +1,18 @@
+<body bgcolor="#b2bec3">
+<div class="profilelogo"></div>
+<div class="siteheaders">
 <h1><%= @user.username %>'s Posts</h1>
+</div>
 <%= button_to "Featured Posts", '/posts', method: :get%>
 <%= button_to "Create Post", '/posts/new', method: :get%>
+
+<div class="whitespacecontainer">
+    <div class="whitespace">
     <ul>
         <%= @posts.each do |post|%>
             <h3><%= link_to post.title, post_path(post) %></h3>
             <image src="<%=(url_for(post.picture))%>">
         <%end%>
     </ul>
+    </div>
+</div>
